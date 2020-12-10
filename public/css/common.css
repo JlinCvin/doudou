@@ -1,0 +1,14 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+}
+ul,li{
+  list-style: none;
+}
+img{
+  display: block;
+}
+html,body{
+  height: 100%;
+}
