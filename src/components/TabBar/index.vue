@@ -39,7 +39,11 @@ export default {
   display: flex;text-align: center;height: 2.5rem;font-weight: normal;
   
     li{
-      flex: 1;height: 2.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       border-top: 2px solid #ebe8e3;
     }
     p{

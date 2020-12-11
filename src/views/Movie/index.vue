@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="height:100%">
     <Header msg='喵喵电影'/>
 			<div class="content">
 				<div class="movie_menu">
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+
 import Header from '@/components/Header'
 import TabBar from '@/components/TabBar'
 export default {
@@ -43,11 +44,19 @@ export default {
 }
 </script>
 
+
 <style lang='scss' scoped>
 .content{
-
+height: 100%;
 	.movie_menu{
 		display: flex;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 9999;
+		margin-top: 2.5rem;
+		background: #fff;
 		text-align: center;
 		line-height: 2rem;
 		height: 2rem;

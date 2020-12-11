@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="wrapper" ref="wrapper">
+    <Scroller>
     <ul>
       <li v-for="item in movies" :key="item.message" class="czl_li">
         <img :src="item.msg">
@@ -7,11 +8,12 @@
           <h5>{{item.name}}</h5>
           <p>观众评：<span>{{item.pingfen}}</span></p>
           <p>主演：{{item.actors}}</p>
-          <p>今天放映{{item.changci}}场</p>
+          <p>上映时间：{{item.changci}}</p>
         </div>
         <button type="button" class="czl_button">预定</button>
       </li>
     </ul>
+    </Scroller>
   </div>
 </template>
 
@@ -26,45 +28,48 @@ export default {
           name: '无名之辈',
           pingfen: '9.2',
           actors: '陈振霖',
-          changci: '555'
+          changci: '2020.12.11'
         },
         {
           msg: require('@/assets/2.jpg'),
           name: '无名之辈',
           pingfen: '9.2',
           actors: '陈振霖',
-          changci: '555'
+          changci: '2020.12.11'
         },
         {
           msg: require('@/assets/3.jpg'),
           name: '无名之辈',
           pingfen: '9.2',
           actors: '陈振霖',
-          changci: '555'
+          changci: '2020.12.11'
         },
         {
           msg: require('@/assets/3.jpg'),
           name: '无名之辈',
           pingfen: '9.2',
           actors: '陈振霖',
-          changci: '555'
+          changci: '2020.12.11'
         },
         {
           msg: require('@/assets/3.jpg'),
           name: '无名之辈',
           pingfen: '9.2',
           actors: '陈振霖',
-          changci: '555'
+          changci: '2020.12.11'
         },
         {
           msg: require('@/assets/3.jpg'),
           name: '无名之辈',
           pingfen: '9.2',
           actors: '陈振霖',
-          changci: '555'
+          changci: '2020.12.11'
         }
       ]
     }
+  },
+  mounted() {
+
   },
   methods: {
 
@@ -73,38 +78,45 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+.wrapper {
+  height: 100%;
+  overflow: hidden;
+  ul{
+    padding: 4.5rem 0 2.5rem 0;
+  }
+}
 .czl_li{
   display: flex;
-  padding: 10px;
+  padding: 0.5rem;
   position: relative;
   align-items: center;
-  border-bottom: 1px solid #ebe8e3;
+  border-bottom: 0.05rem solid #ebe8e3;
   img{
-    width: 60px;
-    height: 80px;
-    margin-right: 10px;
+    width: 3rem;
+    height: 4rem;
+    margin-right: 0.5rem;
   }
   .cal_msg{
     display: flex;
-    height: 80px;
+    height: 4rem;
     flex-direction: column;
     justify-content: space-around;
     h5{
-    font-size: 16px;
+    font-size: 0.8rem;
     }
     p{
-      font-size: 12px;
+      font-size: 0.6rem;
       span{
-        font-size: 12px;
+        font-size: 0.6rem;
         color: goldenrod;
       }
     }
   }
   .czl_button{
      margin-left:auto;
-     font-size: 12px;
-     padding: 5px 10px;
-     border-radius: 5px;
+     font-size: 0.6rem;
+     padding: 0.25rem 0.5rem;
+     border-radius: 0.25rem;
      background: blue;
      border: 0;
      color: #fff;
