@@ -2,6 +2,7 @@
   <div style="height: 100%">
     <Header msg="喵喵最新" />
     <div class="content">
+      <div class="movie_menu_height"></div>
       <div class="movie_menu">
         <router-link tag="div" class="city_name" to="/cinema/cinemas">
           <span>全城</span><i class="iconfont icon-xiaoxi"></i>
@@ -42,8 +43,13 @@ export default {
 <style lang='scss' scoped>
 .content {
   height: 100%;
+  .movie_menu_height{
+    
+    height: 2rem;
+  }
   .movie_menu {
     position: fixed;
+    top: 0;
     left: 0;
     right: 0;
     z-index: 999;

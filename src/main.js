@@ -15,8 +15,12 @@ new Vue({
 }).$mount('#app')
 
 
+
 import Scroller from '@/components/Scroller'
 Vue.component('Scroller' , Scroller)
+
+import Loading from '@/components/Loading'
+Vue.component('Loading',Loading)
 
 const setHtmlFontSize = () => {
   const htmlDom = document.getElementsByTagName('html')[0];

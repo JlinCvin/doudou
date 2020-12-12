@@ -1,6 +1,9 @@
 <template>
-  <header id="header">
-    <h1>{{ msg }}</h1>
+  <header>
+    <div class="header_height"></div>
+    <div id="header">
+      <h1>{{ msg }}</h1>
+    </div>
   </header>
 </template>
 
@@ -20,7 +23,11 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang='scss' scoped>
+.header_height {
+  height: 2.5rem;
+  position: relative;
+}
 #header {
   width: 100%;
   height: 2.5rem;

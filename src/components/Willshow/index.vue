@@ -81,9 +81,6 @@ export default {
 .wrapper {
   height: 100%;
   overflow: hidden;
-  ul{
-    padding: 4.5rem 0 2.5rem 0;
-  }
 }
 .czl_li{
   display: flex;

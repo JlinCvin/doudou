@@ -58,6 +58,27 @@ export default {
           actors: '广州市番禺区大学城',
           changci: ['小吃','会员卡'],
           address: '1575km'
+        },
+        {
+          name: '弟弟影院（弟弟）',
+          money: '239.2',
+          actors: '广州市番禺区大学城',
+          changci: ['小吃','会员卡'],
+          address: '1575km'
+        },
+        {
+          name: '弟弟影院（弟弟）',
+          money: '239.2',
+          actors: '广州市番禺区大学城',
+          changci: ['小吃','会员卡'],
+          address: '1575km'
+        },
+        {
+          name: '弟弟影院（弟弟）',
+          money: '239.2',
+          actors: '广州市番禺区大学城',
+          changci: ['小吃','会员卡'],
+          address: '1575km'
         }
       ]
     }
@@ -74,9 +95,7 @@ export default {
 .wrapper {
   height: 100%;
   overflow: hidden;
-  ul{
-    padding: 4.5rem 0 2.5rem 0;
-  }
+
 }
 .czl_li{
   display: flex;

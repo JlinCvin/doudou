@@ -1,27 +1,29 @@
 <template>
-  <div class="content_city" ref="movie_body">
-
-    <div class="czlCity">
-      <div class="hot_city">
-        <p class="czl_title" style="margin-top: 0">热门城市</p>
-        <div class="city_li">
-          <li v-for="item in city" :key="item.index" class="czl_city">
-            <span>{{ item }}</span>
-          </li>
+  <div class="content_city">
+    <Loading v-if="isloading" />
+    <Scroller v-else ref="city_list">
+      <div class="czlCity">
+        <div class="hot_city">
+          <p class="czl_title" style="margin-top: 0">热门城市</p>
+          <ul class="city_li">
+            <li v-for="item in city" :key="item.index" class="czl_city">
+              <span>{{ item }}</span>
+            </li>
+          </ul>
         </div>
-      </div>
-      <div class="city_sort" ref="city_sort">
-        <div v-for="item in allCity" :key="item.index" class="czl_all">
-          <h2 class="czl_title">{{ item.title }}</h2>
+        <div class="city_sort" ref="city_sort">
+          <div v-for="item in allCity" :key="item.index" class="czl_all">
+            <h2 class="czl_title">{{ item.title }}</h2>
 
-          <div class="all_city">
-            <p v-for="item in item.lists" :key="item.index">
-              {{ item }}
-            </p>
+            <ul class="all_city">
+              <li v-for="item in item.lists" :key="item.index">
+                {{ item }}
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-    </div>
+    </Scroller>
     <div v-show="rollshow" class="ttttt">
       <p
         v-for="(item, index) in allCity"
@@ -35,7 +37,6 @@
 </template>
 
 <script>
-import BScroll from "better-scroll";
 export default {
   name: "City",
   data() {
@@ -43,27 +44,29 @@ export default {
       city: ["广州", "深圳", "北京", "佛山", "厦门", "北京", "上海"],
       allCity: [],
       rollshow: true,
+      isloading: true,
     };
   },
   mounted() {
-    this.axios.get("../../City.json").then((res) => {
-      this.allcitys(res.data.city);
-      this.$nextTick(() => {
-        var options = {
-          scrollY: true, // 因为scrollY默认为true，其实可以省略
-          click: true,
-          tap: true,
-          pullDownRefresh: {
-            threshold: 50,
-            probeType: 3,
-          },
-          pullUpLoad: {
-            threshold: 744,
-          },
-        };
-        new BScroll(this.$refs.movie_body, options);
-      });
+    var allCity = window.localStorage.getItem('allCity')
+    if(allCity){
+      this.allCity = JSON.parse(allCity)
+      this.isloading = false;
+    }
+    else{
+      this.axios.get("../../City.json").then((res) => {
+      if (res.data) {
+        var allCity = this.allcitys(res.data.city);
+        setTimeout(() => {
+          this.isloading = false;
+        }, 500);
+        console.log(this.allcitys(res.data.city))
+        this.allCity = allCity
+        window.localStorage.setItem('allCity' , JSON.stringify(allCity))
+      }
     });
+    }
+    
     // window.addEventListener("scroll", this.btn_pos);
   },
   methods: {
@@ -71,20 +74,22 @@ export default {
       for (let i = 0; i < e.length; i++) {
         this.allCity.push(e[i]);
       }
+      return this.allCity
     },
-    btn_pos: function () {
-      var scrollTop =
-        document.body.scrollTop || document.documentElement.scrollTop;
-      if (scrollTop > 250) {
-        this.rollshow = true;
-      } else {
-        this.rollshow = false;
-      }
-    },
+    // btn_pos: function () {
+    //   var scrollTop =
+    //     document.body.scrollTop || document.documentElement.scrollTop;
+    //   if (scrollTop > 250) {
+    //     this.rollshow = true;
+    //   } else {
+    //     this.rollshow = false;
+    //   }
+    // },
     handleTOindex(index) {
       var h2 = this.$refs.city_sort.getElementsByTagName("h2");
-      document.body.scrollTop = h2[index].offsetTop;
-      document.documentElement.scrollTop = h2[index].offsetTop;
+      // document.body.scrollTop = h2[index].offsetTop;
+      // document.documentElement.scrollTop = h2[index].offsetTop;
+      this.$refs.city_list.toScrollTop(-h2[index].offsetTop);
     },
   },
 };
@@ -92,11 +97,9 @@ export default {
 
 <style lang='scss' scoped>
 .content_city {
-  overflow: hidden;
   height: 100%;
   background: rgb(247, 241, 235);
   .czlCity {
-    padding: 4.5rem 0 2.5rem 0;
     background: rgb(247, 241, 235);
   }
   .czl_title {
@@ -127,7 +130,7 @@ export default {
     }
   }
   .all_city {
-    p {
+    li {
       font-size: 0.7rem;
       padding: 0.1rem 0.5rem;
     }

@@ -1,94 +1,57 @@
 <template>
   <div class="wrapper" ref="wrapper">
-    <Scroller>
-    <ul>
-      <li v-for="item in movies" :key="item.message" class="czl_li">
-        <img :src="item.msg" />
-        <div class="cal_msg">
-          <h5>{{ item.name }}</h5>
-          <p>
-            观众评：<span>{{ item.pingfen }}</span>
-          </p>
-          <p>主演：{{ item.actors }}</p>
-          <p>今天放映{{ item.changci }}场</p>
-        </div>
-        <button type="button" class="czl_button">购票</button>
-      </li>
-    </ul>
+    <Loading v-if="isloading" />
+    <Scroller v-else>
+      <ul>
+        <li v-for="item in movies" :key="item.message" class="czl_li">
+          <img :src="item.msg" />
+          <div class="cal_msg">
+            <h5>{{ item.name }}</h5>
+            <p>
+              观众评：<span>{{ item.pingfen }}</span>
+            </p>
+            <p>主演：{{ item.actors }}</p>
+            <p>今天放映{{ item.changci }}场</p>
+          </div>
+          <button type="button" class="czl_button">购票</button>
+        </li>
+      </ul>
     </Scroller>
   </div>
 </template>
 
 <script>
-
 export default {
   name: "Nowshow",
   data() {
     return {
       movies: [
-        {
-          msg: require("@/assets/1.jpg"),
-          name: "无名之辈",
-          pingfen: "9.2",
-          actors: "陈振霖",
-          changci: "555",
-        },
-        {
-          msg: require("@/assets/1.jpg"),
-          name: "无名之辈",
-          pingfen: "9.2",
-          actors: "陈振霖",
-          changci: "555",
-        },
-        {
-          msg: require("@/assets/1.jpg"),
-          name: "无名之辈",
-          pingfen: "9.2",
-          actors: "陈振霖",
-          changci: "555",
-        },
-        {
-          msg: require("@/assets/2.jpg"),
-          name: "无名之辈",
-          pingfen: "9.2",
-          actors: "陈振霖",
-          changci: "555",
-        },
-        {
-          msg: require("@/assets/3.jpg"),
-          name: "无名之辈",
-          pingfen: "9.2",
-          actors: "陈振霖",
-          changci: "555",
-        },
-        {
-          msg: require("@/assets/3.jpg"),
-          name: "无名之辈",
-          pingfen: "9.2",
-          actors: "陈振霖",
-          changci: "555",
-        },
-        {
-          msg: require("@/assets/3.jpg"),
-          name: "无名之辈",
-          pingfen: "9.2",
-          actors: "陈振霖",
-          changci: "555",
-        },
-        {
-          msg: require("@/assets/3.jpg"),
-          name: "无名之辈",
-          pingfen: "9.2",
-          actors: "陈振霖",
-          changci: "555",
-        },
+        // {
+        //   msg: require("@/assets/1.jpg"),
+        //   name: "无名之辈",
+        //   pingfen: "9.2",
+        //   actors: "陈振霖",
+        //   changci: "555",
+        // }
       ],
+      isloading: true,
     };
   },
   mounted() {
-
+    this.axios.get("../../Nowshow.json").then((res) => {
+      if (res.data) {
+        this.allmovies(res.data.movies);
+          this.isloading = false;
+      }
+    });
   },
-  methods: {},
+  methods: {
+    allmovies(e) {
+      for (let i = 0; i < e.length; i++) {
+        this.movies.push(e[i]);
+      }
+    },
+  },
 };
 </script>
 
@@ -96,9 +59,6 @@ export default {
 .wrapper {
   height: 100%;
   overflow: hidden;
-  ul{
-    padding: 4.5rem 0 2.5rem 0;
-  }
 }
 .czl_li {
   display: flex;
