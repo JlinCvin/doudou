@@ -1,43 +1,43 @@
 {
 	"movies": [{
-			"msg": "../../img/1.jpg",
+			"msg": "../img/1.jpg",
 			"name": "无名之辈",
 			"pingfen": "9.2",
 			"actors": "陈振霖",
 			"changci": "555"
 		},
 		{
-			"msg": "../../img/2.jpg",
+			"msg": "../img/2.jpg",
 			"name": "无名之辈",
 			"pingfen": "9.2",
 			"actors": "陈振霖",
 			"changci": "555"
 		}, {
-			"msg": "../../img/3.jpg",
+			"msg": "../img/3.jpg",
 			"name": "无名之辈",
 			"pingfen": "9.2",
 			"actors": "陈振霖",
 			"changci": "555"
 		}, {
-			"msg": "../../img/1.jpg",
+			"msg": "../img/1.jpg",
 			"name": "无名之辈",
 			"pingfen": "9.2",
 			"actors": "陈振霖",
 			"changci": "555"
 		}, {
-			"msg": "../../img/1.jpg",
+			"msg": "../img/1.jpg",
 			"name": "无名之辈",
 			"pingfen": "9.2",
 			"actors": "陈振霖",
 			"changci": "555"
 		}, {
-			"msg": "../../img/1.jpg",
+			"msg": "../img/1.jpg",
 			"name": "无名之辈",
 			"pingfen": "9.2",
 			"actors": "陈振霖",
 			"changci": "555"
 		}, {
-			"msg": "../../img/1.jpg",
+			"msg": "../img/1.jpg",
 			"name": "无名之辈",
 			"pingfen": "9.2",
 			"actors": "陈振霖",

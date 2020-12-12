@@ -53,7 +53,7 @@ export default {
       this.allCity = JSON.parse(allCitys);
       this.isloading = false;
     } else {
-      this.axios.get("../../City.json").then((res) => {
+      this.axios.get("../City.json").then((res) => {
         if (res.data) {
           var allCitys = this.allcitys(res.data.city);
           setTimeout(() => {
@@ -90,8 +90,6 @@ export default {
     // },
     handleTOindex(index) {
       var h2 = this.$refs.city_sort.getElementsByTagName("h2");
-      // document.body.scrollTop = h2[index].offsetTop;
-      // document.documentElement.scrollTop = h2[index].offsetTop;
       this.$refs.city_list.toScrollTop(-h2[index].offsetTop);
     },
   },

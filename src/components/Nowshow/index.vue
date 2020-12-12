@@ -38,7 +38,7 @@ export default {
     };
   },
   mounted() {
-    this.axios.get("../../Nowshow.json").then((res) => {
+    this.axios.get("../Nowshow.json").then((res) => {
       if (res.data) {
         this.allmovies(res.data.movies);
           this.isloading = false;
