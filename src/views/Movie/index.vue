@@ -5,7 +5,7 @@
       <div class="movie_menu_height"></div>
       <div class="movie_menu">
         <router-link tag="div" class="city_name" to="/movie/city">
-          <span>广州</span><i class="iconfont icon-xiaoxi"></i>
+          <span>{{ $store.state.city.nm}}</span><i class="iconfont icon-xiaoxi"></i>
         </router-link>
 
         <router-link tag="div" to="/movie/nowshow">正在热映</router-link>

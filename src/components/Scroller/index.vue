@@ -17,13 +17,13 @@ export default {
       click: true,
       tap: true,
       mouseWheel: true,
-      pullDownRefresh: {
-            threshold: 50,
-            probeType: 3,
-          },
-          pullUpLoad: {
-            threshold: 744,
-          },
+      // pullDownRefresh: {
+      //       threshold: 50,
+      //       probeType: 3,
+      //     },
+      //     pullUpLoad: {
+      //       threshold: 744,
+      //     },
       probeType: 1,
     });
 

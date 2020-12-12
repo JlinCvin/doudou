@@ -6,7 +6,7 @@
         <div class="hot_city">
           <p class="czl_title" style="margin-top: 0">热门城市</p>
           <ul class="city_li">
-            <li v-for="item in city" :key="item.index" class="czl_city">
+            <li v-for="(item,index) in city" @click="handToCity(item,index)" :key="item.index" class="czl_city">
               <span>{{ item }}</span>
             </li>
           </ul>
@@ -16,7 +16,7 @@
             <h2 class="czl_title">{{ item.title }}</h2>
 
             <ul class="all_city">
-              <li v-for="item in item.lists" :key="item.index">
+              <li v-for="(item,index) in item.lists" @click="handToCity(item,index)" :key="item.index">
                 {{ item }}
               </li>
             </ul>
@@ -48,25 +48,22 @@ export default {
     };
   },
   mounted() {
-    var allCity = window.localStorage.getItem('allCity')
-    if(allCity){
-      this.allCity = JSON.parse(allCity)
+    var allCitys = window.localStorage.getItem("allCitys");
+    if (allCitys) {
+      this.allCity = JSON.parse(allCitys);
       this.isloading = false;
-    }
-    else{
+    } else {
       this.axios.get("../../City.json").then((res) => {
-      if (res.data) {
-        var allCity = this.allcitys(res.data.city);
-        setTimeout(() => {
-          this.isloading = false;
-        }, 500);
-        console.log(this.allcitys(res.data.city))
-        this.allCity = allCity
-        window.localStorage.setItem('allCity' , JSON.stringify(allCity))
-      }
-    });
+        if (res.data) {
+          var allCitys = this.allcitys(res.data.city);
+          setTimeout(() => {
+            this.isloading = false;
+          }, 500);
+          window.localStorage.setItem("allCitys", JSON.stringify(allCitys));
+        }
+      });
     }
-    
+
     // window.addEventListener("scroll", this.btn_pos);
   },
   methods: {
@@ -74,7 +71,13 @@ export default {
       for (let i = 0; i < e.length; i++) {
         this.allCity.push(e[i]);
       }
-      return this.allCity
+      return this.allCity;
+    },
+    handToCity(nm,id){
+      this.$store.commit('city/CITY_INFO',{ nm ,id});
+      window.localStorage.setItem('nowNm',nm);
+      window.localStorage.setItem('nowId',id);
+      this.$router.push('./movie/nowshow');
     },
     // btn_pos: function () {
     //   var scrollTop =
