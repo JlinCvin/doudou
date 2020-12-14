@@ -2,15 +2,15 @@
   <footer id="footer">
     <ul>
       <router-link tag="li" to="/movie">
-        <i class=" iconfont icon-shouye"></i>
+        <i class="iconfont icon-shouye"></i>
         <p>电影</p>
       </router-link>
       <router-link tag="li" to="/cinema">
-        <i class=" iconfont icon-faxian"></i>
+        <i class="iconfont icon-dianyingbofangqi"></i>
         <p>影院</p>
       </router-link>
       <router-link tag="li" to="/login">
-        <i class=" iconfont icon-wode"></i>
+        <i class="iconfont icon-chengyuan"></i>
         <p>我的</p>
       </router-link>
     </ul>
@@ -19,26 +19,32 @@
 
 <script>
 export default {
-  name: 'TabBar',
-  data () {
+  name: "TabBar",
+  data() {
     return {
-      msg: ''
-    }
+      msg: "",
+    };
   },
-  methods: {
-
-  }
-}
+  methods: {},
+};
 </script>
 
 <style lang="scss" scoped>
-#footer{
-  position: fixed;left: 0;bottom: 0;background: #fff;width: 100%;height: 2.5rem;
-  
-  ul{
-  display: flex;text-align: center;height: 2.5rem;font-weight: normal;
-  
-    li{
+#footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background: #fff;
+  width: 100%;
+  height: 2.5rem;
+
+  ul {
+    display: flex;
+    text-align: center;
+    height: 2.5rem;
+    font-weight: normal;
+
+    li {
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -46,15 +52,17 @@ export default {
       justify-content: center;
       border-top: 2px solid #ebe8e3;
     }
-    p{
-      font-size: 0.8rem;line-height: 0.8rem;
+    p {
+      font-size: 0.8rem;
+      line-height: 0.8rem;
     }
-    i{
+    i {
       font-size: 1rem;
     }
-    .router-link-active{
-      color: #ef4239; border-top: 2px solid #ef4239;
+    .router-link-active {
+      color: #ef4239;
+      border-top: 2px solid #ef4239;
     }
-  } 
+  }
 }
 </style>

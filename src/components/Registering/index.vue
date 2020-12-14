@@ -2,33 +2,78 @@
   <div class="comment">
     <div class="loginbox registerbox">
       <div class="box">
-        <h3>用户注册</h3>
-        <form name="register" id="register"  class="czlLogin">
+        <el-form
+          name="register"
+          id="register"
+          class="czlLogin demo-dynamic"
+          :model="ruleForm"
+          ref="ruleForm"
+          :rules="rules"
+          size="medium"
+        >
+          <el-form-item><h3>用户注册</h3> </el-form-item>
           <div class="loginInput">
-            <input
-              type="text"
-              v-model="username"
-              placeholder="输入姓名"
-              class="username"
-            />
-            <input
-              type="password"
-              v-model="psw"
-              placeholder="输入密码"
-              class="psw"
-            />
+            <el-form-item prop="username">
+              <el-input
+                placeholder="输入账号"
+                prefix-icon="el-icon-user"
+                class="username"
+                v-model="ruleForm.username"
+              >
+              </el-input>
+            </el-form-item>
+            <el-form-item prop="pass">
+              <el-input
+                placeholder="密码"
+                type="password"
+                v-model="ruleForm.pass"
+                autocomplete="off"
+              ></el-input>
+            </el-form-item>
+            <el-form-item prop="checkPass">
+              <el-input
+                placeholder="确认密码"
+                type="password"
+                v-model="ruleForm.checkPass"
+                autocomplete="off"
+              ></el-input>
+            </el-form-item>
+            <el-form-item prop="email">
+              <el-input v-model="ruleForm.email" placeholder="输入邮箱">
+              </el-input>
+            </el-form-item>
+            <el-form-item v-if="ifVerify">
+              <el-button class="sendVerify" type="" value="注册" @click="pushVerify()">
+                发送验证码
+              </el-button>
+            </el-form-item>
+            <el-form-item v-else>
+              <el-input
+                placeholder="输入验证码"
+                class="verify"
+                v-model="ruleForm.verify"
+              >
+              </el-input>
+            </el-form-item>
           </div>
           <div class="loginButton">
-            <input type="button" value="注册" @click="register()" />
-            <router-link
-              tag="input"
-              type="button"
-              value="登录"
-              class="blueBtn"
-              to="/login/logining"
-            ></router-link>
+            <el-form-item>
+              <el-button type="primary" value="注册" @click="register()">
+                注册
+              </el-button>
+            </el-form-item>
           </div>
-        </form>
+        </el-form>
+        <div class="nextwork">
+          <router-link
+            tag="el-link"
+            :underline="false"
+            type="primary"
+            to="/login/logining"
+            style="font-size: 0.65rem"
+            ><返回登录</router-link
+          >
+        </div>
       </div>
     </div>
   </div>
@@ -38,57 +83,101 @@
 export default {
   name: "registering",
   data() {
+    var validatePass = (rule, value, callback) => {
+      if (value === "") {
+        callback(new Error("请输入密码"));
+      } else {
+        if (this.ruleForm.checkPass !== "") {
+          this.$refs.ruleForm.validateField("checkPass");
+        }
+        callback();
+      }
+    };
+    var validatePass2 = (rule, value, callback) => {
+      if (value === "") {
+        callback(new Error("请再次输入密码"));
+      } else if (value !== this.ruleForm.pass) {
+        callback(new Error("两次输入密码不一致!"));
+      } else {
+        callback();
+      }
+    };
     return {
-      username: "",
-      psw: "",
-      users: [
-        {
-          username: "czl",
-          password: "123456",
-          userimg: "1.jpg",
-        },
-        {
-          username: "czl1",
-          password: "123456",
-          userimg: "1.jpg",
-        },
-        {
-          username: "czl2",
-          password: "123456",
-          userimg: "1.jpg",
-        },
-      ],
+      ifVerify: true,
+      ruleForm: {
+        username: "",
+        pass: "",
+        checkpass: "",
+        email: "",
+        verify: "",
+      },
+      rules: {
+        username: [
+          { required: true, message: "请输入账号", trigger: "blur" },
+          {
+            min: 3,
+            max: 10,
+            message: "长度在 3 到 10 个字符",
+            trigger: "blur",
+          },
+        ],
+        pass: [{ validator: validatePass, trigger: "blur" }],
+        checkPass: [{ validator: validatePass2, trigger: "blur" }],
+        email: [
+          { required: true, message: "请输入邮箱地址", trigger: "blur" },
+          {
+            type: "email",
+            message: "请输入正确的邮箱地址",
+            trigger: ["blur", "change"],
+          },
+        ],
+      },
     };
   },
   methods: {
     register: function () {
-      var obj = {};
-      var flag = false;
-      var username = this.username;
-      var psw = this.psw;
-      for (var i = 0; i < this.users.length; i++) {
-        if (this.users[i].username === username) {
-          flag = true;
-          alert("该用户名已经被注册");
-
-          break;
-        }
-      }
-      if (!flag) {
-        if (username == "" || psw == "") {
-          alert("账号密码为空");
-        } else {
-          var randomNum = Math.floor(Math.random() * 3) + 1;
-          var randomImg = randomNum + ".jpg";
-          obj.username = username;
-          obj.password = psw;
-          obj.userimg = randomImg;
-
-          this.users.push(obj);
-          alert("注册成功");
-          this.$router.push('/login/logining')
-          document.getElementById("register").reset();
-        }
+      this.axios
+        .post("/api2/users/register", {
+          username: this.ruleForm.username,
+          password: this.ruleForm.pass,
+          email: this.ruleForm.email,
+          verify: this.ruleForm.verify,
+        })
+        .then((res) => {
+          var status = res.data.status;
+          if (status === 1) {
+            this.$message({
+              message: "注册成功",
+            });
+            this.$router.push("/login/center");
+          } else if (status === -2) {
+            this.$message({
+              message: "注册失败，账号邮箱已被注册",
+            });
+            document.getElementById("login").reset();
+          } else {
+            this.$message({
+              message: "验证码错误",
+            });
+          }
+        });
+    },
+    pushVerify() {
+      if (this.ruleForm.email == "") {
+        this.$message({
+          message: "邮箱为空",
+        });
+      } else {
+        this.ifVerify = false;
+        this.axios
+          .post("/api2/users/verify", {
+            email: this.ruleForm.email,
+          })
+          .then((res) => {
+            this.$message({
+              message: "验证码发送成功",
+            });
+          });
       }
     },
   },
@@ -101,9 +190,15 @@ export default {
     margin-right: 0.25rem;
     color: #999;
   }
+  .nextwork {
+    display: flex;
+    justify-content: space-between;
+  }
+  ::v-deep el-link{
+    font-size: 0.65rem;
+  }
   .loginbox {
     .box {
-      padding: 1rem;
       margin: 0.5rem;
       background: #fff;
       h3 {
@@ -115,6 +210,13 @@ export default {
         margin: 0.5rem 0;
         border-radius: 0.1rem;
       }
+      .el-input {
+             ::v-deep .el-input__inner{
+          height: 1.8rem;
+          line-height: 1.8rem;
+          font-size: .6rem;
+        }
+      }
       .czlLogin {
         display: flex;
         align-items: center;
@@ -122,25 +224,22 @@ export default {
         .loginInput {
           display: flex;
           flex-direction: column;
-          input {
-            height: 2.5rem;
-            width: 12.5rem;
-            padding: 0 1rem;
-          }
-        }
-        .loginButton {
-          display: flex;
-          flex-direction: column;
-          input {
-            padding: 0.15rem 2rem;
-            font-size: 1rem;
-            background: red;
-            color: #fff;
-            font-family: "微软雅黑";
-            border: none;
-          }
+          width: 100%;
         }
       }
+      .loginButton {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          .el-button {
+            width: 100%;
+            font-size: 1rem;
+          }
+        }
+        .sendVerify{
+          float: right;
+          font-size: 0.7rem;
+        }
     }
   }
 }

@@ -11,8 +11,16 @@ export default{
       component: () => import('@/components/Registering')
     },
     {
+      path : 'center',
+      component: () => import('@/components/Center')
+    },
+    {
+      path : 'findpassword',
+      component: () => import('@/components/FindPassword')
+    },
+    {
       path : '/login',
-      redirect : '/login/logining'
+      redirect : '/login/center'
     }
   ]
 }

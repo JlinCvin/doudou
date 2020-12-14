@@ -5,7 +5,7 @@
       <div class="movie_menu_height"></div>
       <div class="movie_menu">
         <router-link tag="div" class="city_name" to="/movie/city">
-          <span>{{ $store.state.city.nm}}</span><i class="iconfont icon-xiaoxi"></i>
+          <span>{{ $store.state.city.nm}}</span><i class="iconfont icon-xia"></i>
         </router-link>
 
         <router-link tag="div" to="/movie/nowshow">正在热映</router-link>
@@ -52,7 +52,7 @@ export default {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 9999;
+    z-index: 9;
     margin-top: 2.5rem;
     background: #fff;
     text-align: center;
