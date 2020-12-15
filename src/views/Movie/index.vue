@@ -1,6 +1,6 @@
 <template>
   <div style="height: 100%">
-    <Header msg="喵喵电影" />
+    <Header msg="逗逗电影" />
     <div class="content">
       <div class="movie_menu_height"></div>
       <div class="movie_menu">

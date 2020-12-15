@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header msg="我的喵喵" />
+    <Header msg="我的逗逗" />
     <router-view></router-view>
     <TabBar />
   </div>

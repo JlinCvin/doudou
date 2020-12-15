@@ -1,5 +1,5 @@
 const state = {
-  nm : window.localStorage.getItem('nowNm') || '北京',
+  nm : window.localStorage.getItem('nowNm') || '广州',
   id : window.localStorage.getItem('nowId') || 1
 }
 

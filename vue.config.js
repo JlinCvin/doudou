@@ -1,5 +1,5 @@
 module.exports = {
-  publicPath: '/miaomiao',
+  publicPath: '/doudou',
   // assetsDir: 'static',
   //   parallel: false,
     // publicPath: process.env.NODE_ENV === 'production' ? './' : '/' 
