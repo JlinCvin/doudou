@@ -27,11 +27,6 @@ export default {
     return {
       movies: [
         // {
-        //   msg: require("@/assets/1.jpg"),
-        //   name: "无名之辈",
-        //   pingfen: "9.2",
-        //   actors: "陈振霖",
-        //   changci: "555",
         //     "actors": "马虎 / 梁正双 / 张锦新",
         // "director": "许慧晶",
         // "link": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2627027305.jpg",

@@ -37,7 +37,7 @@ export default {
   background: #fff;
   width: 100%;
   height: 2.5rem;
-
+  z-index: 9;
   ul {
     display: flex;
     text-align: center;

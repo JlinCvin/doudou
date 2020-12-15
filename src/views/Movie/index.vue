@@ -62,6 +62,12 @@ export default {
       color: #ef4239;
       border-bottom: 2px solid #ef4239;
     }
+      .city_name{
+    i{
+      font-size: 0.5rem;
+      margin-left: 0.1rem;
+    }
+  }
     div {
       border-bottom: 2px solid #ebe8e3;
       flex: 1;
