@@ -3,15 +3,17 @@
     <Scroller>
     <ul>
       <li v-for="item in movies" :key="item.message" class="czl_li">
-        <img :src="item.msg">
-        <div class="cal_msg">
-          <h5>{{item.name}}</h5>
-          <p>观众评：<span>{{item.pingfen}}</span></p>
-          <p>主演：{{item.actors}}</p>
-          <p>上映时间：{{item.changci}}</p>
-        </div>
-        <button type="button" class="czl_button">预定</button>
-      </li>
+          <img :src="item.msg" />
+          <div class="cal_msg">
+            <h5>{{ item.name }}</h5>
+            <p>
+              观众评：<span>{{ item.rate }}</span>
+            </p>
+            <p class="li_actors">主演：{{ item.actors }}</p>
+            <p>上映时间：{{ item.time }}年</p>
+          </div>
+          <button type="button" class="czl_button">购票</button>
+        </li>
     </ul>
     </Scroller>
   </div>
@@ -22,58 +24,33 @@ export default {
   name: 'Willshow', 
   data () {
     return {
-      movies:[
-        {
-          msg: require('@/assets/1.jpg'),
-          name: '无名之辈',
-          pingfen: '9.2',
-          actors: '陈振霖',
-          changci: '2020.12.11'
-        },
-        {
-          msg: require('@/assets/2.jpg'),
-          name: '无名之辈',
-          pingfen: '9.2',
-          actors: '陈振霖',
-          changci: '2020.12.11'
-        },
-        {
-          msg: require('@/assets/3.jpg'),
-          name: '无名之辈',
-          pingfen: '9.2',
-          actors: '陈振霖',
-          changci: '2020.12.11'
-        },
-        {
-          msg: require('@/assets/3.jpg'),
-          name: '无名之辈',
-          pingfen: '9.2',
-          actors: '陈振霖',
-          changci: '2020.12.11'
-        },
-        {
-          msg: require('@/assets/3.jpg'),
-          name: '无名之辈',
-          pingfen: '9.2',
-          actors: '陈振霖',
-          changci: '2020.12.11'
-        },
-        {
-          msg: require('@/assets/3.jpg'),
-          name: '无名之辈',
-          pingfen: '9.2',
-          actors: '陈振霖',
-          changci: '2020.12.11'
-        }
-      ]
+     movies: [
+        //     "actors": "马虎 / 梁正双 / 张锦新",
+        // "director": "许慧晶",
+        // "msg": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2627027305.jpg",
+        // "name": "棒！少年",
+        // "rate": "8.7",
+        // "rater": "16705",
+        // "sroce": "8.7",
+        // "time": "2020"
+      ],
     }
   },
   mounted() {
-
+    this.axios.get("../Nowshow.json").then((res) => {
+      if (res.data) {
+        this.allmovies(res.data.movies);
+        this.isloading = false;
+      }
+    });
   },
   methods: {
-
-  }
+    allmovies(e) {
+      for (let i = 0; i < e.length; i++) {
+        this.movies.push(e[i]);
+      }
+    },
+  },
 }
 </script>
 
@@ -93,17 +70,27 @@ export default {
     height: 4rem;
     margin-right: 0.5rem;
   }
-  .cal_msg{
+    .cal_msg {
     display: flex;
     height: 4rem;
+    overflow: hidden;
+      width: 50%;
     flex-direction: column;
     justify-content: space-around;
-    h5{
-    font-size: 0.8rem;
+    h5 {
+      font-size: 0.7rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
-    p{
+    .li_actors{
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    p {
       font-size: 0.6rem;
-      span{
+      span {
         font-size: 0.6rem;
         color: goldenrod;
       }

@@ -8,10 +8,10 @@
           <div class="cal_msg">
             <h5>{{ item.name }}</h5>
             <p>
-              观众评：<span>{{ item.pingfen }}</span>
+              观众评：<span>{{ item.rate }}</span>
             </p>
-            <p>主演：{{ item.actors }}</p>
-            <p>今天放映{{ item.changci }}场</p>
+            <p class="li_actors">主演：{{ item.actors }}</p>
+            <p>今天放映{{ item.rater }}场</p>
           </div>
           <button type="button" class="czl_button">购票</button>
         </li>
@@ -32,6 +32,14 @@ export default {
         //   pingfen: "9.2",
         //   actors: "陈振霖",
         //   changci: "555",
+        //     "actors": "马虎 / 梁正双 / 张锦新",
+        // "director": "许慧晶",
+        // "link": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2627027305.jpg",
+        // "name": "棒！少年",
+        // "rate": "8.7",
+        // "rater": "16705",
+        // "sroce": "8.7",
+        // "time": "2020"
         // }
       ],
       isloading: true,
@@ -41,7 +49,7 @@ export default {
     this.axios.get("../Nowshow.json").then((res) => {
       if (res.data) {
         this.allmovies(res.data.movies);
-          this.isloading = false;
+        this.isloading = false;
       }
     });
   },
@@ -74,10 +82,20 @@ export default {
   .cal_msg {
     display: flex;
     height: 4rem;
+    overflow: hidden;
+      width: 50%;
     flex-direction: column;
     justify-content: space-around;
     h5 {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .li_actors{
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
     p {
       font-size: 0.6rem;

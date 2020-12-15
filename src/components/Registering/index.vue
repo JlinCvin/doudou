@@ -71,7 +71,7 @@
             type="primary"
             to="/login/logining"
             style="font-size: 0.65rem"
-            ><返回登录</router-link
+            >返回登录</router-link
           >
         </div>
       </div>
@@ -99,6 +99,7 @@ export default {
       } else if (value !== this.ruleForm.pass) {
         callback(new Error("两次输入密码不一致!"));
       } else {
+        this.ruleForm.pushverify = true
         callback();
       }
     };
@@ -110,6 +111,7 @@ export default {
         checkpass: "",
         email: "",
         verify: "",
+        pushverify: false
       },
       rules: {
         username: [
@@ -154,7 +156,6 @@ export default {
             this.$message({
               message: "注册失败，账号邮箱已被注册",
             });
-            document.getElementById("login").reset();
           } else {
             this.$message({
               message: "验证码错误",
@@ -163,9 +164,9 @@ export default {
         });
     },
     pushVerify() {
-      if (this.ruleForm.email == "") {
+      if (this.ruleForm.email == "" || this.ruleForm.pushverify == false) {
         this.$message({
-          message: "邮箱为空",
+          message: "信息不完整",
         });
       } else {
         this.ifVerify = false;

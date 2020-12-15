@@ -1,47 +1,243 @@
 {
 	"movies": [{
-			"msg": "../img/1.jpg",
-			"name": "无名之辈",
-			"pingfen": "9.2",
-			"actors": "陈振霖",
-			"changci": "555"
-		},
-		{
-			"msg": "../img/2.jpg",
-			"name": "无名之辈",
-			"pingfen": "9.2",
-			"actors": "陈振霖",
-			"changci": "555"
-		}, {
-			"msg": "../img/3.jpg",
-			"name": "无名之辈",
-			"pingfen": "9.2",
-			"actors": "陈振霖",
-			"changci": "555"
-		}, {
-			"msg": "../img/1.jpg",
-			"name": "无名之辈",
-			"pingfen": "9.2",
-			"actors": "陈振霖",
-			"changci": "555"
-		}, {
-			"msg": "../img/1.jpg",
-			"name": "无名之辈",
-			"pingfen": "9.2",
-			"actors": "陈振霖",
-			"changci": "555"
-		}, {
-			"msg": "../img/1.jpg",
-			"name": "无名之辈",
-			"pingfen": "9.2",
-			"actors": "陈振霖",
-			"changci": "555"
-		}, {
-			"msg": "../img/1.jpg",
-			"name": "无名之辈",
-			"pingfen": "9.2",
-			"actors": "陈振霖",
-			"changci": "555"
-		}
-	]
+		"actors": "马虎 / 梁正双 / 张锦新",
+		"director": "许慧晶",
+		"msg": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2627027305.jpg",
+		"name": "棒！少年",
+		"rate": "8.7",
+		"rater": "16705",
+		"time": "2020"
+	}, {
+		"actors": "亚历山大·佩特罗夫 / 文森兹·凯弗 / 伊琳娜·斯达申鲍姆",
+		"director": "Aleksei",
+		"msg": "https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2627487532.jpg",
+		"name": "猎杀T34 T-34",
+		"rate": "7.5",
+		"rater": "22378",
+		"time": "2019"
+	}, {
+		"actors": "张译 / 刘浩存 / 范伟",
+		"director": "张艺谋",
+		"msg": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2628373757.jpg",
+		"name": "一秒钟",
+		"rate": "7.8",
+		"rater": "117852",
+		"time": "2020"
+	}, {
+		"actors": "水田山葵 / 大原惠美 / 嘉数由美",
+		"director": "今井一晓",
+		"msg": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2624375776.jpg",
+		"name": "哆啦A梦：大雄的新恐龙 映画ドラえもん のび太の新恐竜",
+		"rate": "7.6",
+		"rater": "7908",
+		"time": "2020"
+	}, {
+		"actors": "伊丽莎白·莫斯 / 奥利弗·杰森-科恩 / 阿尔迪斯·霍吉",
+		"director": "雷·沃纳尔",
+		"msg": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2624945594.jpg",
+		"name": "隐形人 The Invisible Man",
+		"rate": "7.2",
+		"rater": "157053",
+		"time": "2020"
+	}, {
+		"actors": "章若楠 / 孙晨竣 / 王彦霖",
+		"director": "落落",
+		"msg": "https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2627432193.jpg",
+		"name": "如果声音不记得",
+		"rate": "4.1",
+		"rater": "19744",
+		"time": "2020"
+	}, {
+		"actors": "尼古拉斯·凯奇 / 艾玛·斯通 / 瑞恩·雷诺兹",
+		"director": "乔尔·克劳福德",
+		"msg": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2624607255.jpg",
+		"name": "疯狂原始人2 The Croods: A New Age",
+		"rate": "8.2",
+		"rater": "84892",
+		"time": "2020"
+	}, {
+		"actors": "菲利普·拉肖 / 艾罗娣·方坦 / 塔雷克·布达里",
+		"director": "菲利普·拉肖",
+		"msg": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2626879808.jpg",
+		"name": "城市猎人 Nicky Larson et le parfum de Cupidon",
+		"rate": "7.0",
+		"rater": "16362",
+		"time": "2018"
+	}, {
+		"actors": "陈立农 / 李现 / 哈妮克孜",
+		"director": "宋灏霖",
+		"msg": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2627575957.jpg",
+		"name": "赤狐书生",
+		"rate": "5.2",
+		"rater": "51280",
+		"time": "2020"
+	}, {
+		"actors": "张译 / 吴京 / 李九霄",
+		"director": "管虎",
+		"msg": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2623301908.jpg",
+		"name": "金刚川",
+		"rate": "6.5",
+		"rater": "187782",
+		"time": "2020"
+	}, {
+		"actors": "王千源 / 吴彦祖 / 春夏",
+		"director": "刘浩良",
+		"msg": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2625777429.jpg",
+		"name": "除暴",
+		"rate": "6.5",
+		"rater": "91081",
+		"time": "2020"
+	}, {
+		"actors": "杰拉德·巴特勒 / 莫蕾娜·巴卡琳 / 大卫·丹曼",
+		"director": "里克·罗曼·沃夫",
+		"msg": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2626067725.jpg",
+		"name": "末日逃生 Greenland",
+		"rate": "5.6",
+		"rater": "19284",
+		"time": "2020"
+	}, {
+		"actors": "邓恩熙 / 李感 / 吴国华",
+		"director": "周笋",
+		"msg": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2627779454.jpg",
+		"name": "少女佳禾",
+		"rate": "6.0",
+		"rater": "1376",
+		"time": "2019"
+	}, {
+		"actors": "索朗旺姆 / 金巴 / 杨秀措",
+		"director": "万玛才旦",
+		"msg": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2623499790.jpg",
+		"name": "气球",
+		"rate": "7.9",
+		"rater": "33236",
+		"time": "2019"
+	}, {
+		"actors": "黄才伦 / 张慧雯 / 沈腾",
+		"director": "冯一平",
+		"msg": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2619899048.jpg",
+		"name": "日不落酒店",
+		"rate": "",
+		"rater": "58",
+		"time": "2021"
+	}, {
+		"actors": "吕星辰 / 吴晓亮 / 王佳佳",
+		"director": "梁鸣",
+		"msg": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2625833086.jpg",
+		"name": "日光之下",
+		"rate": "6.6",
+		"rater": "4543",
+		"time": "2019"
+	}, {
+		"actors": "松本梨香 / 大谷育江 / 市村正亲",
+		"director": "汤山邦彦",
+		"msg": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2625913008.jpg",
+		"name": "宝可梦：超梦的逆袭 进化 劇場版 ポケットモンスター ミュウツーの逆襲 EVOLUTION",
+		"rate": "6.4",
+		"rater": "5697",
+		"time": "2019"
+	}, {
+		"actors": "金晨 / 姜潮 / 朱璇",
+		"director": "洪斗贤",
+		"msg": "https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2623348372.jpg",
+		"name": "闺蜜心窍",
+		"rate": "",
+		"rater": "359",
+		"time": "2020"
+	}, {
+		"actors": "哈里森·福特 / 丹·史蒂文斯 / 凯伦·吉兰",
+		"director": "克里斯·桑德斯",
+		"msg": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2624308041.jpg",
+		"name": "野性的呼唤 The Call of the Wild",
+		"rate": "7.2",
+		"rater": "30287",
+		"time": "2020"
+	}, {
+		"actors": "陈浩民 / 王婉中",
+		"director": "吴俊贤",
+		"msg": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2627926985.jpg",
+		"name": "南拳之英雄崛起",
+		"rate": "",
+		"rater": "62",
+		"time": "2020"
+	}, {
+		"actors": "巩俐 / 黄渤 / 吴刚",
+		"director": "陈可辛",
+		"msg": "https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2620083313.jpg",
+		"name": "夺冠",
+		"rate": "7.4",
+		"rater": "243135",
+		"time": "2020"
+	}, {
+		"actors": "花江夏树 / 细谷佳正 / 三森铃子",
+		"director": "田口智久",
+		"msg": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2623955494.jpg",
+		"name": "数码宝贝：最后的进化 デジモンアドベンチャー LAST EVOLUTION 絆",
+		"rate": "7.5",
+		"rater": "66717",
+		"time": "2020"
+	}, {
+		"actors": "葛优 / 黄渤 / 范伟",
+		"director": "宁浩",
+		"msg": "https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2620453443.jpg",
+		"name": "我和我的家乡",
+		"rate": "7.4",
+		"rater": "353534",
+		"time": "2020"
+	}, {
+		"actors": "陶慧 / 童蕾",
+		"director": "孟奇",
+		"msg": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2619202748.jpg",
+		"name": "半条棉被",
+		"rate": "5.5",
+		"rater": "292",
+		"time": "2020"
+	}, {
+		"actors": "朱研 / 李槐龙 / 宋春丽",
+		"director": "丁震",
+		"msg": "https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2624380152.jpg",
+		"name": "守望相思树",
+		"rate": "",
+		"rater": "422",
+		"time": "2020"
+	}, {
+		"actors": "芦田爱菜 / 石桥阳彩 / 浦上晟周",
+		"director": "渡边步",
+		"msg": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2624335616.jpg",
+		"name": "海兽之子 海獣の子供",
+		"rate": "6.6",
+		"rater": "15813",
+		"time": "2019"
+	}, {
+		"actors": "麦克斯·卡林内斯库 / 德文·科恩 / 德鲁·戴维斯",
+		"director": "安德鲁·斯特里梅迪斯",
+		"msg": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2624458010.jpg",
+		"name": "汪汪队立大功之超能救援 PAW Patrol: Mighty Pups",
+		"rate": "6.2",
+		"rater": "1424",
+		"time": "2020"
+	}, {
+		"actors": "北野武 / 关口雄介 / 岸本加世子",
+		"director": "北野武",
+		"msg": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2620392435.jpg",
+		"name": "菊次郎的夏天 菊次郎の夏",
+		"rate": "8.8",
+		"rater": "432095",
+		"time": "1999"
+	}, {
+		"actors": "上白石萌歌 / 黑木华 / 星野源",
+		"director": "细田守",
+		"msg": "https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2623809782.jpg",
+		"name": "未来的未来 未来のミライ",
+		"rate": "6.6",
+		"rater": "16474",
+		"time": "2018"
+	}, {
+		"actors": "张涵予",
+		"director": "郝蕴",
+		"msg": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2623585039.jpg",
+		"name": "保家卫国——抗美援朝光影纪实",
+		"rate": "",
+		"rater": "520",
+		"time": "2020"
+	}]
 }
